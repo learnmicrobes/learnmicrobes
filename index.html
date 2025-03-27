@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biochemical Identification Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Enterobacteriaceae Identification Calculator</h1>
+            <p class="subtitle">A quick reference tool for microbiology students</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="mode-selector">
+            <button class="mode-btn active" data-mode="calculator">Basic Identification Calculator</button>
+            <button class="mode-btn" data-mode="quiz">Test Yourself</button>
+        </div>
+
+        <div id="calculator-mode">
+            <section id="calculator">
+                <h2><i class="fas fa-flask"></i> Select Positive Biochemical Tests</h2>
+                <form id="biochemical-form">
+                    <!-- Biochemical Test Checkboxes -->
+                    <div class="test-category">
+                        <h3>Common Tests</h3>
+                        <label><input type="checkbox" id="indole" name="indole"> Indole Test</label>
+                        <label><input type="checkbox" id="methylRed" name="methylRed"> Methyl Red Test</label>
+                        <label><input type="checkbox" id="vogesProskauer" name="vogesProskauer"> Voges Proskauer Test</label>
+                        <label><input type="checkbox" id="citrate" name="citrate"> Simmons' Citrate Test</label>
+                        <label><input type="checkbox" id="h2s" name="h2s"> Hydrogen Sulfide (H2S) Test</label>
+                        <label><input type="checkbox" id="urea" name="urea"> Urea Test</label>
+                        <label><input type="checkbox" id="motility" name="motility"> Motility Test</label>
+                    </div>
+
+                    <div class="test-category">
+                        <h3>Decarboxylase Tests</h3>
+                        <label><input type="checkbox" id="lysineDecarboxylase" name="lysineDecarboxylase"> Lysine Decarboxylase</label>
+                        <label><input type="checkbox" id="arginineDihydrolase" name="arginineDihydrolase"> Arginine Dihydrolase</label>
+                        <label><input type="checkbox" id="ornithineDecarboxylase" name="ornithineDecarboxylase"> Ornithine Decarboxylase</label>
+                        <label><input type="checkbox" id="phenylalanineDeaminase" name="phenylalanineDeaminase"> Phenylalanine Deaminase</label>
+                    </div>
+
+                    <div class="test-category">
+                        <h3>Carbohydrate Fermentation</h3>
+                        <label><input type="checkbox" id="gasFromDGlucose" name="gasFromDGlucose"> Gas from D-Glucose</label>
+                        <label><input type="checkbox" id="lactose" name="lactose"> Lactose Fermentation</label>
+                        <label><input type="checkbox" id="sucrose" name="sucrose"> Sucrose Fermentation</label>
+                        <label><input type="checkbox" id="dMannitol" name="dMannitol"> D-Mannitol Fermentation</label>
+                        <label><input type="checkbox" id="adonitol" name="adonitol"> Adonitol Fermentation</label>
+                        <label><input type="checkbox" id="inositol" name="inositol"> Inositol Fermentation</label>
+                        <label><input type="checkbox" id="dSorbitol" name="dSorbitol"> D-Sorbitol Fermentation</label>
+                        <label><input type="checkbox" id="lArabinose" name="lArabinose"> L-Arabinose Fermentation</label>
+                        <label><input type="checkbox" id="raffinose" name="raffinose"> Raffinose Fermentation</label>
+                        <label><input type="checkbox" id="lRhamnose" name="lRhamnose"> L-Rhamnose</label>
+                    </div>
+
+                    <div class="test-category">
+                        <h3>Other Tests</h3>
+                        <label><input type="checkbox" id="KCN" name="KCN"> Growth in KCN</label>
+                        <label><input type="checkbox" id="Gelatin" name="Gelatin"> Gelatin Hydrolysis</label>
+                        <label><input type="checkbox" id="DNAse" name="DNAse"> DNAse Test</label>
+                    </div>
+
+                    <div class="button-group">
+                        <button type="button" class="identify-btn" onclick="identifyBacteria()">
+                            <i class="fas fa-search"></i> Identify Bacteria
+                        </button>
+                        <button type="reset" class="reset-btn">
+                            <i class="fas fa-redo"></i> Reset
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <section id="result">
+                <h2><i class="fas fa-microscope"></i> Identification Result</h2>
+                <div class="result-container">
+                    <p id="result-text">Select positive tests above to identify the bacteria.</p>
+                </div>
+            </section>
+        </div>
+
+        <div id="quiz-mode" style="display:none;">
+            <div class="quiz-container">
+                <h3>Guess the Bacteria</h3>
+                <div id="quiz-tests"></div>
+                <input type="text" id="guess-input" placeholder="Enter organism name...">
+                <button id="submit-guess">Submit Guess</button>
+                <div id="quiz-feedback"></div>
+            </div>
+            <button id="new-quiz">New Question</button>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Biochemical Calculator</p>
+            <div class="social-links">
+                <a href="https://instagram.com/franzescuzar" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-instagram"></i> @franzescuzar
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
